@@ -2,17 +2,19 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Instructor\DashboardController;
+use App\Http\Controllers\Instructor\CourseController as InstructorCourseController;
+use App\Http\Controllers\Student\CourseController as StudentCourseController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Instructor\CourseController;
-
-
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    if (auth()->user()->role === 'instructor') {
+        return redirect()->route('instructor.dashboard');
+    }
+    return redirect()->route('student.courses.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -25,15 +27,21 @@ Route::middleware(['auth', 'instructor'])
     ->prefix('instructor')
     ->name('instructor.')
     ->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        
+        Route::get('/courses/create', [InstructorCourseController::class, 'create'])->name('courses.create');
+        Route::post('/courses', [InstructorCourseController::class, 'store'])->name('courses.store');
+        Route::get('/courses/{course}/edit', [InstructorCourseController::class, 'edit'])->name('courses.edit');
+        Route::put('/courses/{course}', [InstructorCourseController::class, 'update'])->name('courses.update');
+        Route::delete('/courses/{course}', [InstructorCourseController::class, 'destroy'])->name('courses.destroy');
+    });
 
-        Route::get('/dashboard', [DashboardController::class, 'index'])
-            ->name('dashboard');
-
-        Route::get('/courses/create', [CourseController::class, 'create'])
-            ->name('courses.create');
-
-        Route::post('/courses', [CourseController::class, 'store'])
-            ->name('courses.store');
+Route::middleware(['auth'])
+    ->prefix('student')
+    ->name('student.')
+    ->group(function () {
+        Route::get('/courses', [StudentCourseController::class, 'index'])->name('courses.index');
+        Route::get('/courses/{course}', [StudentCourseController::class, 'show'])->name('courses.show');
     });
 
 require __DIR__.'/auth.php';

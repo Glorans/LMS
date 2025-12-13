@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-nature-800 leading-tight flex items-center">
-            <span class="text-2xl mr-2">➕</span>
-            Create New Course
+            <span class="text-2xl mr-2">✏️</span>
+            Edit Course
         </h2>
     </x-slot>
 
@@ -10,21 +10,21 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white shadow-lg rounded-lg overflow-hidden border-l-4 border-nature-500">
                 <div class="bg-gradient-to-r from-nature-600 to-nature-500 p-6">
-                    <h3 class="text-white text-2xl font-bold">📝 Course Information</h3>
-                    <p class="text-nature-100 mt-1">Fill in the details for your new course</p>
+                    <h3 class="text-white text-2xl font-bold">✏️ Edit Course</h3>
+                    <p class="text-nature-100 mt-1">Update your course information</p>
                 </div>
 
                 <div class="p-6">
-                    <form method="POST" action="{{ route('instructor.courses.store') }}">
+                    <form method="POST" action="{{ route('instructor.courses.update', $course) }}">
                         @csrf
+                        @method('PUT')
 
                         <div class="mb-6">
                             <label class="block text-nature-800 text-sm font-bold mb-2">
                                 📌 Course Title *
                             </label>
-                            <input type="text" name="title" value="{{ old('title') }}" 
+                            <input type="text" name="title" value="{{ old('title', $course->title) }}" 
                                    class="input-nature w-full @error('title') border-red-500 @enderror" 
-                                   placeholder="e.g., Introduction to Web Development"
                                    required>
                             @error('title')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -37,8 +37,7 @@
                             </label>
                             <textarea name="short_description" rows="3" 
                                       class="input-nature w-full @error('short_description') border-red-500 @enderror" 
-                                      placeholder="Write a brief overview of your course..."
-                                      required>{{ old('short_description') }}</textarea>
+                                      required>{{ old('short_description', $course->short_description) }}</textarea>
                             @error('short_description')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -50,8 +49,7 @@
                             </label>
                             <textarea name="full_content" rows="12" 
                                       class="input-nature w-full @error('full_content') border-red-500 @enderror" 
-                                      placeholder="Write your complete course content here..."
-                                      required>{{ old('full_content') }}</textarea>
+                                      required>{{ old('full_content', $course->full_content) }}</textarea>
                             @error('full_content')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -62,7 +60,7 @@
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                Create Course
+                                Update Course
                             </button>
                             <a href="{{ route('instructor.dashboard') }}" class="btn-nature-outline">
                                 Cancel

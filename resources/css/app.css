@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-gradient-to-b from-nature-50 to-nature-100;
+    }
+}
+
+@layer components {
+
+    .btn-nature-primary {
+        @apply bg-nature-700 text-white px-4 py-2 rounded-md hover:bg-nature-800 transition duration-200;
+    }
+    
+    .btn-nature-secondary {
+        @apply bg-nature-500 text-white px-4 py-2 rounded-md hover:bg-nature-600 transition duration-200;
+    }
+    
+    .btn-nature-outline {
+        @apply border-2 border-nature-600 text-nature-700 px-4 py-2 rounded-md hover:bg-nature-50 transition duration-200;
+    }
+
+
+    .card-nature {
+        @apply bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 border-l-4 border-nature-500;
+    }
+
+    .input-nature {
+        @apply border-nature-300 focus:border-nature-500 focus:ring-nature-500 rounded-md shadow-sm;
+    }
+
+    .table-nature thead {
+        @apply bg-nature-100 border-b-2 border-nature-400;
+    }
+    
+    .table-nature tbody tr:hover {
+        @apply bg-nature-50;
+    }
+}
