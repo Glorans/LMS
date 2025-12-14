@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-nature-800 leading-tight flex items-center">
-            <span class="text-2xl mr-2">📖</span>
             Course Details
         </h2>
     </x-slot>
@@ -34,7 +33,6 @@
                     <!-- Short Description -->
                     <div class="mb-8 p-6 bg-nature-50 rounded-lg border-l-4 border-nature-400">
                         <h3 class="font-semibold text-lg mb-3 text-nature-800 flex items-center">
-                            <span class="text-2xl mr-2">📋</span>
                             About This Course
                         </h3>
                         <p class="text-gray-700 leading-relaxed">{{ $course->short_description }}</p>

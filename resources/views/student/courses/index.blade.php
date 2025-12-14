@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-nature-800 leading-tight flex items-center">
-            <span class="text-2xl mr-2">🌱</span>
+            <span class="text-2xl mr-2"></span>
             Browse Courses
         </h2>
     </x-slot>
@@ -10,7 +10,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white shadow-lg rounded-lg p-6 border-l-4 border-nature-500">
                 <h3 class="text-2xl font-bold mb-6 text-nature-800 flex items-center">
-                    <span class="text-3xl mr-2">📚</span>
                     Available Courses ({{ $courses->count() }})
                 </h3>
 
@@ -20,7 +19,6 @@
                             <div class="card-nature p-6 hover:scale-105 transition-transform duration-200">
                                 <div class="flex items-start justify-between mb-3">
                                     <h4 class="font-bold text-lg text-nature-800 flex-1">{{ $course->title }}</h4>
-                                    <span class="text-2xl">🎓</span>
                                 </div>
                                 
                                 <p class="text-sm text-nature-600 mb-3 flex items-center">
@@ -51,7 +49,7 @@
                     </div>
                 @else
                     <div class="text-center py-12">
-                        <p class="text-gray-500 text-lg">🌱 No courses available at the moment.</p>
+                        <p class="text-gray-500 text-lg"> No courses available at the moment.</p>
                         <p class="text-gray-400 mt-2">Check back later for new courses!</p>
                     </div>
                 @endif

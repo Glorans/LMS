@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-nature-800 leading-tight flex items-center">
-            <span class="text-2xl mr-2">➕</span>
             Create New Course
         </h2>
     </x-slot>
@@ -10,7 +9,7 @@
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white shadow-lg rounded-lg overflow-hidden border-l-4 border-nature-500">
                 <div class="bg-gradient-to-r from-nature-600 to-nature-500 p-6">
-                    <h3 class="text-white text-2xl font-bold">📝 Course Information</h3>
+                    <h3 class="text-white text-2xl font-bold"> Course Information</h3>
                     <p class="text-nature-100 mt-1">Fill in the details for your new course</p>
                 </div>
 
@@ -20,7 +19,7 @@
 
                         <div class="mb-6">
                             <label class="block text-nature-800 text-sm font-bold mb-2">
-                                📌 Course Title *
+                                 Course Title *
                             </label>
                             <input type="text" name="title" value="{{ old('title') }}" 
                                    class="input-nature w-full @error('title') border-red-500 @enderror" 
@@ -33,7 +32,7 @@
 
                         <div class="mb-6">
                             <label class="block text-nature-800 text-sm font-bold mb-2">
-                                📋 Short Description *
+                                 Short Description *
                             </label>
                             <textarea name="short_description" rows="3" 
                                       class="input-nature w-full @error('short_description') border-red-500 @enderror" 

@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-nature-800 leading-tight flex items-center">
-            <span class="text-2xl mr-2"></span>
             Instructor Dashboard
         </h2>
     </x-slot>
@@ -27,7 +26,6 @@
 
             <div class="bg-white shadow-lg rounded-lg p-6 border-l-4 border-nature-500">
                 <h3 class="text-2xl font-bold mb-6 text-nature-800 flex items-center">
-                    <span class="text-3xl mr-2">📚</span>
                     My Courses ({{ $courses->count() }})
                 </h3>
 
@@ -54,14 +52,14 @@
                                             <div class="flex gap-2 justify-center">
                                                 <a href="{{ route('instructor.courses.edit', $course) }}" 
                                                    class="text-nature-600 hover:text-nature-800 font-medium hover:underline">
-                                                    ✏️ Edit
+                                                    Edit
                                                 </a>
                                                 <form method="POST" action="{{ route('instructor.courses.destroy', $course) }}" 
                                                       onsubmit="return confirm('Are you sure you want to delete this course?');">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="text-red-600 hover:text-red-800 font-medium hover:underline">
-                                                        🗑️ Delete
+                                                        Delete
                                                     </button>
                                                 </form>
                                             </div>
@@ -73,7 +71,7 @@
                     </div>
                 @else
                     <div class="text-center py-12">
-                        <p class="text-gray-500 text-lg">🌱 You haven't created any courses yet.</p>
+                        <p class="text-gray-500 text-lg"> You haven't created any courses yet.</p>
                         <p class="text-gray-400 mt-2">Start by creating your first course!</p>
                     </div>
                 @endif

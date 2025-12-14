@@ -6,8 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" class="flex items-center">
-                        <span class="text-2xl">🌿</span>
-                        <span class="ml-2 text-xl font-bold text-white">Simple LMS</span>
+                        <span class="text-xl font-bold text-white">LearnSpace</span>
                     </a>
                 </div>
 

@@ -16,11 +16,15 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gradient-to-b from-nature-50 to-nature-100">
+            
+            <!-- Clickable Logo/Title -->
             <div>
-                <a href="/" class="flex items-center">
-                    <span class="text-6xl"></span>
-                    <span class="ml-3 text-3xl font-bold text-nature-700">Simple LMS</span>
+                <a href="/" class="flex items-center hover:opacity-80 transition">
+                    <span class="text-3xl font-bold text-nature-700">LearnSpace</span>
                 </a>
+                <p class="text-center text-sm text-nature-600 mt-2">
+                    <a href="/" class="hover:underline">← Back to Home</a>
+                </p>
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-lg overflow-hidden sm:rounded-lg border-t-4 border-nature-500">
