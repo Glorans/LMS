@@ -23,7 +23,7 @@
                     <span class="text-3xl font-bold text-nature-700">LearnSpace</span>
                 </a>
                 <p class="text-center text-sm text-nature-600 mt-2">
-                    <a href="/" class="hover:underline">← Back to Home</a>
+                    <a href="/" class="hover:underline">← Back to Welcome Page</a>
                 </p>
             </div>
 
